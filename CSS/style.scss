@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
+
 /* asginacion de nombre a atributos*/
-$Rosa_Base:#FFCDcd;
-$Rosa_claro: #ffecec;
-$ancho: 100px;
-$alto: 100px;
+$Rosa_Base:#96634c;
+$Rosa_claro: #daae99;
+$ancho: 200px;
+$alto: 50px;
+
 
 
 /* asignando mapa de colores para el background*/
 $colores :(
-    rosaBase: #FFCDcd,
-    rosaClaro: #ffecec,
+    rosaBase: #96634c,
+    rosaClaro: #daae99,
 );
 
 @each $valor, $color in $colores {
@@ -23,7 +26,7 @@ $colores :(
 }
 
 *{ /*se aplicara en todas las paginas*/
-    font-family: "abhaya libre", sans-serif ;
+    font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 0;
     }
@@ -48,10 +51,10 @@ $colores :(
     
     header {
         grid-area: header;
+        
     }
     
     .menu{
-        
         
         width: 100%;
         display: flex;
@@ -60,31 +63,41 @@ $colores :(
         background-color: $Rosa_Base;
         padding: 0;
         margin: 0;
-        font-size: 20px;  
+        font-size: 12px;  
         background-image: linear-gradient(to top, #f8e6e6, $Rosa_Base);
+        
         &__image{
             width: $ancho;
             height: $alto;
+            margin: 15px;
         }
         &__lista{
             display: flex;
             justify-content: space-evenly;
             width: 100%;
-            
+            border: solid;
+            border-color: $Rosa_claro;
+            border-style: solid;
         }
         &__item{
             list-style: none;
+            margin: 5px;
+            
+            
             & a{
                 text-decoration: none;
                  color: rgb(77, 66, 66);
+                 
                  &:hover{
-                     background-color: $Rosa_claro;
-                     color: red;
-                    font-size: x-large;
+                    
+                    color: $Rosa_Base;
+                    font-size: small;
                  }
             }
             &:hover {
-                transform: translate(5px, 10px);
+                transform: scale(1.1);
+                font-weight: bold;
+                
             }
         }
     }
@@ -95,12 +108,11 @@ $colores :(
         background-image: url(../Imagenes/encabezado.png);
         
         background-position: center;
-        background-size: cover;
+        background-size: 100%;
         background-repeat: no-repeat;
         width: 100%;
         height: 100vh;
-        margin: 5px;
-        padding: 10px 30px;
+        margin-top: 5px;
         display: flex;
         flex-direction: column;   
         align-items: center;
@@ -112,8 +124,12 @@ $colores :(
             & a {
                 background-color: $Rosa_Base;
                 text-decoration: none;
+                border: solid;
+                border-color: $Rosa_Base;
                 color: white;   
                 font-size: xx-large;
+                padding-left: 10px;
+                padding-right: 10px;
             }
         }
         
@@ -128,10 +144,15 @@ $colores :(
         justify-content: space-between;
         align-items:flex-end;
         padding: 10px;
-        color: rgb(77, 66, 66);
+        color: rgb(255, 255, 255);
+        
+        & h3 {
+            font-size: medium
+            ;
+        }
     }
     .redes{
-        height: 50px;
+        height: 30px;
     }
     
     /* propiedades la pagina contacto */
@@ -147,7 +168,7 @@ $colores :(
             margin: 5px;
             padding: 10px;
             border: solid;
-            width: 600px;
+            width: 500px;
             border-color: $Rosa_Base;
             background-color: $Rosa_claro;
             display:flex;
@@ -171,18 +192,14 @@ $colores :(
     .boton{
             display: flex;
             margin-top: 10px;
-            width:150px;
+           
             
             &--enviar{
                 @extend .boton;
                 color: rgb(77, 66, 66);
                 background-color: #ffcdcd3b;
                 border-color: $Rosa_Base;
-            }
-            &--cancelar{
-                @extend .boton--enviar;
-                color: salmon;
-                
+                padding: 5px;
             }
         }
     
@@ -205,13 +222,13 @@ $colores :(
         border-color: $Rosa_Base;
         margin: 10px;
         padding: 10px;
-        @include medidasImagen(500px, 300px )
+        align-items: center;
+        @include medidasImagen(500px, 320px )
         
         }
         &__texto {
             display: flex;
         flex-direction: column;
-        color: $Rosa_Base;
         background-color: $Rosa_claro;
         border-color: $Rosa_Base;
         border-style: solid;
@@ -220,8 +237,8 @@ $colores :(
         margin: 10px;
         padding: 10px;
         width: 500px;
-        height: 300px;
-        color: rgb(77, 66, 66);
+        height: 320px;
+        color: black;
         }
     }
     
@@ -249,10 +266,7 @@ $colores :(
         .formulario {
             width: 100%;
         }
-        .nail {
-            display: flex;
-            flex-direction: column;
-        }
+        
         .aprende {
             display: flex;
             flex-direction: column;
@@ -269,31 +283,109 @@ $colores :(
         }
     }
     /* atributos segun el tamaño de dispositivo que se use*/
-    @media (max-width: 960px) {
+    @media (max-width: 690px) {
         .nail {
             display: flex;
             flex-direction: column;
+            width: 100%;
+            align-items: center;
+            & div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
         }
         
     }
-    @media (min-width: 481px) and (max-width: 1024px) {
+    @media (min-width: 691px) {
+        .nail {
+            height: auto;
+            margin: 5px;      
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+        
+    }
+    @media (min-width: 481px) and (max-width: 768px) {
         .aprende {
             display: flex;
             flex-direction: column;
             width: 100%;
-            margin-right: 0;
+            
+            align-items: center;
             &__imagen {
                 width: 450px;
-                height: 300px;
+                height: 350px;
                 
             }
             &__texto {
                 width: 450px;
-                height: 300px;
+                height: 350px;
+            }
+        }
+        
+        
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .aprende {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            
+            align-items: center;
+            &__imagen {
+                margin-left: 150px;
+                width: 450px;
+                height: 350px;
+                
+            }
+            &__texto {
+                margin-left: 150px;
+                width: 450px;
+                height: 350px;
+            }
+        }
+        .main {
+        
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 80vh;
+            margin: 0;
+            padding: 0;
+    
+            
+            &__lista {
+                display: block;
+                
+            }
+            
+        
+        
+    }
+    }
+    @media (min-width: 1025px) {
+        .aprende {
+            width: 100%;
+            
+            align-items: center;
+            &__imagen {
+                margin-left: 75px;
+                width: 450px;
+                height: 320px;
+                
+            }
+            &__texto {
+                margin-left: 50px;
+                width: 450px;
+                height: 320px;
             }
         }
     }
-    @media (max-width: 767px) {
+    @media (max-width: 468px) {
         .contacto{
             &__mapa {
                 width: 100%;
@@ -304,15 +396,21 @@ $colores :(
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 700px;
+        margin: 0;
+        padding: 0;
+        
     }
     .menu {
         display: flex;
         flex-direction: column;
+        
     }
     .main {
+        
         background-repeat: no-repeat;
-       
+        height: 35vh;
+        margin: 0;
+        padding: 0;
         &__text {
             font-size: medium ; 
         }
@@ -324,18 +422,43 @@ $colores :(
             font-size: medium;
         }
     
-    .aprende {
+    
+}
+    }
+    @media (min-width: 469px) and (max-width: 768px) {
+        
+    body {
+        
         display: flex;
         flex-direction: column;
-        &__imagen {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-        }
-        &__texto {
-            display: flex;
-            flex-direction: column;
-        }
+        width: 100%;
+        
     }
+    .menu {
+        display: flex;
+        flex-direction: column;
+        
+        
+    }
+    .main {
+        
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 50vh;
+        margin-top: 5px;
+        padding: 0;
+
+        &__text {
+            font-size: medium ; 
+        }
+        &__lista {
+            display: block;
+            
+        }
+        a {
+            font-size: medium;
+        }
+    
+    
 }
     }
